@@ -63,8 +63,14 @@ module.exports = {
   },
   vuetify: {},
   axios: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3085',
-    browserBaseURL: 'http://localhost:3085',
+    baseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'http://api.bunga23.com'
+        : 'http://localhost:3085',
+    browserBaseURL:
+      process.env.NODE_ENV === 'production'
+        ? 'http://api.bunga23.com'
+        : 'http://localhost:3085',
     https: false,
   },
   server: {
