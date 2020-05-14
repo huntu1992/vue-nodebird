@@ -1,4 +1,4 @@
-const Nuxt = require('nuxt');
+const { Nuxt } = require('nuxt');
 const app = require('express')();
 const isProd = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 3080;
