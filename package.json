@@ -24,10 +24,5 @@
     "lint": "eslint **/*"
   },
   "author": "",
-  "license": "ISC",
-  "config": {
-    "nuxt": {
-      "port": "3080"
-    }
-  }
+  "license": "ISC"
 }
