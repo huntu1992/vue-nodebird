@@ -1,21 +1,26 @@
-const { Nuxt } = require('nuxt');
+const { Nuxt, Builder } = require('nuxt');
+
 const app = require('express')();
 const isProd = process.env.NODE_ENV === 'production';
-const port = process.env.PORT || 3080;
+const port = process.env.PORT || 3081;
 
-// options으로 nuxt.js를 인스턴스화 합니다.
+// We instantiate Nuxt.js with the options
 const config = require('./nuxt.config.js');
 config.dev = !isProd;
 const nuxt = new Nuxt(config);
 
-// nuxt.js로 모든 route를 랜더합니다.
+// Render every route with Nuxt.js
 app.use(nuxt.render);
 
-// dev 모드를 위해 핫-로딩 빌드를 합니다.
+// Build only in dev mode with hot-reloading
 if (config.dev) {
-  nuxt.build();
+  new Builder(nuxt).build().then(listen);
+} else {
+  listen();
 }
 
-// 서버
-app.listen(port, '0.0.0.0');
-console.log('Server listening on localhost:' + port);
+function listen() {
+  // Listen the server
+  app.listen(port);
+  console.log('Server listening on `localhost:' + port + '`.');
+}
