@@ -65,11 +65,11 @@ module.exports = {
   axios: {
     baseURL:
       process.env.NODE_ENV === 'production'
-        ? 'http://ymjo.bignice.kr/'
+        ? 'http://ymjo.bignice.kr'
         : 'http://localhost:3085',
     browserBaseURL:
       process.env.NODE_ENV === 'production'
-        ? 'http://ymjo.bignice.kr/'
+        ? 'http://ymjo.bignice.kr'
         : 'http://localhost:3085',
     https: false,
   },
